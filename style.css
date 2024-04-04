@@ -1,0 +1,262 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Inter, Arial;
+}
+
+nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 12rem;
+    margin-left: 8rem;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        li{
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+
+            .nav-line {
+                width: 0.8rem;
+                height: 1px;
+                background-color: black;
+            }
+            
+            a {
+                font-size: 1.6rem;
+                color: black;
+            }
+        }
+    }
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    position: relative;
+    top: 40%;
+
+    h1 {
+        font-size: 6.4rem;
+    }
+
+    p {
+        font-size: 4rem;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 24rem;
+}
+
+#start {
+    height: 100vh;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 6.4rem;
+    padding-inline: 12rem;
+    margin-left: 20rem;
+}
+
+.timeline {
+    position: relative;
+
+    .line {
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        left: 1.2rem;
+        transform: translateX(-50%);
+        background-color: blueviolet;
+    }
+    
+    .entries {
+        display: flex;
+        flex-direction: column;
+        gap: 12rem;
+
+        .entry {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+
+            .marker {
+                min-width: 2.4rem;
+                min-height: 2.4rem;
+                border-radius: 50%;
+                background-color: blueviolet;
+                border: 0.4rem solid white;
+                z-index: 10;
+                box-sizing: border-box;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                gap: 2.4rem;
+
+                h3, p {
+                    font-size: 2rem;
+                }
+
+                .description {
+                    color: blueviolet;
+                }
+            }
+        }
+    }
+}
+
+
+h2 {
+    font-size: 4rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+
+    div {
+        text-wrap: nowrap;
+        font-size: 2rem;
+        padding: 1.2rem 2.4rem;
+        border: 1px solid black;
+        border-radius: 1.6rem;
+    }
+}
+
+.cards {
+    display: grid;
+    gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+
+    .card {
+        background-color: aliceblue;
+        border-radius: 0.8rem;
+        
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        padding: 3.2rem 3.2rem 8rem;
+
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+
+            * {
+                font-size: 1.2rem;
+                padding: 0.4rem 1.2rem;
+                border: 1px solid black;
+                border-radius: 12rem;
+                text-wrap: nowrap;
+            }
+        }
+    }    
+}
+
+section#cv {
+    background-color: violet;
+    margin: 0;
+    padding: 16rem;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12rem;
+
+    button {
+        padding: 1.2rem 2.4rem;
+        border: 1px solid black;
+        border-radius: 1.6rem;
+        background: none;
+
+        a {
+            color: black;
+            font-size: 2.4rem;
+            text-wrap: nowrap;
+        }
+    }
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16rem;
+    padding: 6.4rem 32rem;
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+    align-content: end;
+    gap: 12rem;
+
+    .social-links {
+        display: flex;
+        gap: 6.4rem;
+        flex-wrap: wrap;
+        justify-content: end;
+
+        .link {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            align-items: center;
+
+            h3 {
+                font-size: 2.4rem;
+                font-weight: 500;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+
+    p, a {
+        font-size: 1.6rem;
+        display: block;
+        margin-bottom: 0.4rem;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+        margin-bottom: 1.6rem;
+    }
+}
