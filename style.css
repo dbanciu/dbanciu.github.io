@@ -15,6 +15,10 @@
     --card-shadow-clr: rgba(114, 92, 255, 0.16);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Inter, Arial;
     background-color: var(--white);
@@ -49,8 +53,17 @@ nav {
                 font-size: 1.6rem;
                 color: var(--black);
             }
+
+            a.active {
+                font-weight: 700;
+            }
         }
     }
+}
+
+section#start {
+    height: 100vh;
+    margin-left: 20vw;
 }
 
 header {
@@ -78,16 +91,29 @@ main {
     margin-bottom: 24rem;
 }
 
-#start {
-    height: 100vh;
-    margin-left: 20vw;
-}
-
 section {
     display: flex;
     flex-direction: column;
     gap: 6.4rem;
     padding-inline: 12rem 24rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+
+    div {
+        text-wrap: nowrap;
+        font-size: 2rem;
+        padding: 1.2rem 2.4rem;
+        border: 1px solid var(--black);
+        border-radius: 1.6rem;
+    }
 }
 
 .timeline {
@@ -139,25 +165,6 @@ section {
     }
 }
 
-
-h2 {
-    font-size: 4rem;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2.4rem;
-
-    div {
-        text-wrap: nowrap;
-        font-size: 2rem;
-        padding: 1.2rem 2.4rem;
-        border: 1px solid var(--black);
-        border-radius: 1.6rem;
-    }
-}
-
 .cards {
     display: grid;
     gap: 4rem;
@@ -201,9 +208,11 @@ h2 {
 
 
 section#cv {
-    background-color: var(--primary-clr);
+    /*background-color: var(--primary-clr);*/
+    background-image: url(images/Gradient_purple.png);
+    background-size: cover;
     margin: 0;
-    padding: 20rem 6.4rem;
+    padding: 20rem 24rem;
 
     flex-direction: row;
     align-items: center;
@@ -229,49 +238,104 @@ footer {
     flex-direction: column;
     gap: 16rem;
     padding: 8rem 32rem;
-}
 
-.contact {
-    display: flex;
-    justify-content: space-between;
-    align-content: end;
-    gap: 12rem;
-
-    .social-links {
+    .contact {
         display: flex;
-        gap: 6.4rem;
         flex-wrap: wrap;
-        justify-content: end;
-
-        .link {
+        justify-content: space-between;
+        align-content: end;
+        gap: 12rem;
+    
+        .social-links {
             display: flex;
-            flex-direction: column;
-            gap: 1.6rem;
-            align-items: center;
-
-            h3 {
-                font-size: 2.4rem;
-                font-weight: 500;
+            gap: 6.4rem;
+            flex-wrap: wrap;
+    
+            .link {
+                display: flex;
+                flex-direction: column;
+                gap: 1.6rem;
+    
+                h3 {
+                    font-size: 2.4rem;
+                    font-weight: 500;
+                }
+                p {
+                    font-size: 1rem;
+                }
             }
-            p {
-                font-size: 1rem;
-            }
+        }
+    }
+    
+    .footer-info {
+        display: flex;
+        justify-content: space-between;
+        gap: 8rem;
+    
+        p, a {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 0.4rem;
+            text-wrap: nowrap;
+        }
+    
+        h4 {
+            font-size: 1.6rem;
+            margin-bottom: 1.6rem;
+            text-wrap: nowrap;
         }
     }
 }
 
-.footer-info {
-    display: flex;
-    justify-content: space-between;
+@media (max-width: 768px) {
 
-    p, a {
-        font-size: 1.6rem;
-        display: block;
-        margin-bottom: 0.4rem;
+    nav {
+        display: none; /*gets changed later in the process*/
     }
 
-    h4 {
-        font-size: 1.6rem;
-        margin-bottom: 1.6rem;
+    section#start {
+        margin: 0;
+    }
+
+    main {
+        margin: 0 0 12rem;
+    }
+
+    section {
+        padding-inline: 4rem;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+    
+        div {
+            text-wrap: nowrap;
+            font-size: 1.6rem;
+            padding: 0.8rem 1.6rem;
+            border: 1px solid var(--black);
+            border-radius: 1rem;
+        }
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        .card {
+            padding: 3.2rem;
+        }
+    }
+
+    section#cv {
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: 4rem;
+        padding: 12rem 4rem;
+    }
+
+    footer {
+        padding: 4rem;
     }
 }
