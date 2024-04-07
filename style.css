@@ -24,7 +24,17 @@ body {
     background-color: var(--white);
 }
 
+.open-menu {
+    display: none;
+    z-index: 900;
+}
+
+.close-menu {
+    display: none;
+}
+
 nav {
+    z-index: 1000;
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
@@ -36,7 +46,7 @@ nav {
         list-style-type: none;
         display: flex;
         flex-direction: column;
-        gap: 1.6rem;
+        gap: 2.4rem;
 
         li{
             display: flex;
@@ -63,7 +73,7 @@ nav {
 
 section#start {
     height: 100vh;
-    margin-left: 20vw;
+    margin-left: 16vw;
 }
 
 header {
@@ -106,8 +116,9 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     gap: 2.4rem;
+    list-style-type: none;
 
-    div {
+    li {
         text-wrap: nowrap;
         font-size: 2rem;
         padding: 1.2rem 2.4rem;
@@ -277,6 +288,7 @@ footer {
             display: block;
             margin-bottom: 0.4rem;
             text-wrap: nowrap;
+            color: var(--black);
         }
     
         h4 {
@@ -288,11 +300,42 @@ footer {
 }
 
 @media (max-width: 768px) {
-
-    nav {
-        display: none; /*gets changed later in the process*/
+    
+    .open-menu {
+        display: block;
+        position: fixed;
+        top: 4rem;
+        left: 4rem;
     }
 
+    nav {
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 4rem;
+        padding-right: 12rem;
+        transform: translateY(0);
+
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(4rem);
+        box-shadow: 0 0.4rem 2.4rem var(--card-shadow-clr);
+
+        .close-menu {
+            margin-bottom: 8rem;
+            display: block;
+        }
+
+        transform: translateX(-100%);
+        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    nav.open {
+        transform: translateX(0%);
+    }
+
+    
     section#start {
         margin: 0;
     }
@@ -310,7 +353,7 @@ footer {
         flex-wrap: wrap;
         gap: 1.2rem;
     
-        div {
+        li {
             text-wrap: nowrap;
             font-size: 1.6rem;
             padding: 0.8rem 1.6rem;
@@ -330,7 +373,7 @@ footer {
 
     section#cv {
         flex-wrap: wrap;
-        justify-content: start;
+        justify-content: space-between;
         gap: 4rem;
         padding: 12rem 4rem;
     }

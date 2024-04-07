@@ -18,3 +18,17 @@ window.onscroll = () => {
         }
     });
 };
+
+// Burger Menu
+
+const openMenuBtn = document.querySelector(".open-menu");
+const closeMenuBtn = document.querySelector(".close-menu");
+const menu = document.querySelector("nav");
+
+openMenuBtn.addEventListener("click", () => {
+    menu.classList.add("open");
+});
+
+closeMenuBtn.addEventListener("click", () => {
+    menu.classList.remove("open");
+});
