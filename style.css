@@ -71,28 +71,6 @@ nav {
     }
 }
 
-section#start {
-    height: 100vh;
-    margin-left: 16vw;
-}
-
-header {
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem;
-
-    position: relative;
-    top: 40%;
-
-    h1 {
-        font-size: 6.4rem;
-    }
-
-    p {
-        font-size: 4rem;
-    }
-}
-
 main {
     display: flex;
     flex-direction: column;
@@ -107,6 +85,50 @@ section {
     gap: 6.4rem;
     padding-inline: 12rem 24rem;
 }
+
+section#start {
+    position: relative;
+    height: 100vh;
+    margin-left: 16vw;
+
+    /* display: flex;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0; */
+
+    header {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+
+        position: relative;
+        top: 40%;
+
+        h1 {
+            font-size: 8rem;
+            color: grey;
+            mix-blend-mode: difference;
+        }
+
+        p {
+            font-size: 4rem;
+            color: grey;
+            mix-blend-mode: difference;
+        }
+    }
+
+    img {
+        z-index: -100;
+
+        position: absolute;
+        right: 0;
+        min-width: 60%;
+    }
+}
+
+
 
 h2 {
     font-size: 4rem;
@@ -186,37 +208,116 @@ h2 {
         border-radius: 0.8rem;
         max-width: 51.2rem;
         box-shadow: 0.4rem 0.4rem 2.4rem var(--card-shadow-clr);
-        
-        display: flex;
-        flex-direction: column;
-        gap: 2.4rem;
         padding: 3.2rem 3.2rem 8rem;
 
-
-        h3 {
-            font-size: 2rem;
-        }
-
-        p {
-            font-size: 1.6rem;
-        }
-
-        .chips {
+        .info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-
-            * {
-                font-size: 1.2rem;
-                padding: 0.4rem 1.2rem;
-                border: 1px solid var(--black);
-                border-radius: 12rem;
-                text-wrap: nowrap;
+            flex-direction: column;
+            gap: 2.4rem;
+            
+            h3 {
+                font-size: 2rem;
+            }
+    
+            p {
+                font-size: 1.6rem;
+            }
+    
+            .chips {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+    
+                * {
+                    font-size: 1.2rem;
+                    padding: 0.4rem 1.2rem;
+                    border: 1px solid var(--black);
+                    border-radius: 12rem;
+                    text-wrap: nowrap;
+                }
             }
         }
-    }  
-}
 
+        a {
+            display: none;
+        }
+
+        .description {
+            display: none;
+        }
+    }  
+
+    .open  {
+        position: fixed;
+        z-index: 1100;
+        top: 0;
+        left: 0; 
+        max-width: none;
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+
+        border-radius: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(4rem);
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24rem 4rem;
+
+            .card-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 4rem;
+
+                .info {
+                    max-width: 70%;
+                    gap: 3.2rem;
+
+                    h3 {
+                        font-size: 4rem;
+                    }
+            
+                    p {
+                        font-size: 2.4rem;
+                    }
+            
+                    .chips {            
+                        gap: 1.2rem;
+                        margin-bottom: 4rem;
+            
+                        * {
+                            font-size: 1.6rem;
+                            padding: 0.8rem 1.6rem;
+                        }
+                    }
+                }
+
+                a {
+                    display: block;
+                    border: 1px solid black;
+                    width: 4rem;
+                    height: 4rem;
+                    border-radius: 2rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        width: 2.4rem;
+                        height: 2.4rem;
+                    }
+                }
+            }
+
+            .description {
+                display: block;
+                font-size: 2.4rem;
+            }  
+        }   
+    }
+}
 
 section#cv {
     /*background-color: var(--primary-clr);*/
@@ -337,7 +438,16 @@ footer {
 
     
     section#start {
-        margin: 0;
+        margin: 0 0 24rem;
+
+        header {
+            top: 20%;
+        }
+
+        img {
+            bottom: 0;
+            width: 100%;
+        }
     }
 
     main {

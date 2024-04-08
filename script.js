@@ -19,6 +19,8 @@ window.onscroll = () => {
     });
 };
 
+
+
 // Burger Menu
 
 const openMenuBtn = document.querySelector(".open-menu");
@@ -31,4 +33,23 @@ openMenuBtn.addEventListener("click", () => {
 
 closeMenuBtn.addEventListener("click", () => {
     menu.classList.remove("open");
+});
+
+
+
+//Cards
+
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        card.classList.add("open");
+    });
+
+    let cardCloseBtn = card.querySelector("a");
+
+    cardCloseBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        card.classList.remove("open");
+    });
 });
