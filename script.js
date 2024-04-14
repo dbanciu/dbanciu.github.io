@@ -1,4 +1,4 @@
-//Scrolling Links
+// Scrolling Links
 
 let sections = document.querySelectorAll("section");
 let navLinks = document.querySelectorAll("nav a");
@@ -37,7 +37,7 @@ closeMenuBtn.addEventListener("click", () => {
 
 
 
-//Cards
+// Cards
 
 let cards = document.querySelectorAll(".card");
 
@@ -53,3 +53,23 @@ cards.forEach(card => {
         card.classList.remove("open");
     });
 });
+
+const body = document.body,
+      jsScroll = document.getElementsByClassName('js-scroll')[0],
+      height = jsScroll.getBoundingClientRect().height - 1,
+      speed = 0.15;
+
+var offset = 0;
+
+body.style.height = Math.floor(height) + "px";
+
+function smoothScroll() {
+    offset += (window.pageYOffset - offset) * speed;
+    
+    var scroll = "translateY(-" + offset + "px) translateZ(0)";
+    jsScroll.style.transform = scroll;
+    
+    raf = requestAnimationFrame(smoothScroll);
+}
+smoothScroll();
+
