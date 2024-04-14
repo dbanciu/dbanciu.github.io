@@ -12,7 +12,8 @@
     --grey: #646277;
     --black: #373543;
     --card-clr: #ececec;
-    --card-shadow-clr: rgba(114, 92, 255, 0.16);
+    --card-shadow-clr: rgba(114, 92, 255, 0.08);
+    --card-shadow-hover: rgba(114, 92, 255, 0.20);
 }
 
 html {
@@ -22,6 +23,27 @@ html {
 body {
     font-family: Inter, Arial;
     background-color: var(--white);
+}
+
+button {
+    padding: 1.2rem 2.4rem;
+    border: 1px solid var(--black);
+    border-radius: 1.6rem;
+    background: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: border-radius 0.2s ease-in-out;
+
+    a {
+        color: black;
+        font-size: 2.4rem;
+        font-weight: 400;
+        text-wrap: nowrap;
+    }
+}
+
+button:hover {
+    border-radius: 3.2rem;
 }
 
 .open-menu {
@@ -88,9 +110,8 @@ section {
 
 section#start {
     position: relative;
-    height: 100vh;
+    height: 100svh;
     margin-left: 16vw;
-
     /* display: flex;
     flex-direction: row;
     gap: 0;
@@ -101,7 +122,7 @@ section#start {
     header {
         display: flex;
         flex-direction: column;
-        gap: 2.4rem;
+        gap: 4rem;
 
         position: relative;
         top: 40%;
@@ -139,6 +160,7 @@ h2 {
     flex-wrap: wrap;
     gap: 2.4rem;
     list-style-type: none;
+    max-width: 1400px;
 
     li {
         text-wrap: nowrap;
@@ -146,6 +168,10 @@ h2 {
         padding: 1.2rem 2.4rem;
         border: 1px solid var(--black);
         border-radius: 1.6rem;
+    }
+
+    li:hover {
+        background-color: rgba(114, 92, 255, 0.04);
     }
 }
 
@@ -201,14 +227,17 @@ h2 {
 .cards {
     display: grid;
     gap: 4rem;
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr));
 
     .card {
         background-color: var(--card-clr);
         border-radius: 0.8rem;
         max-width: 51.2rem;
+        min-height: 20rem;
         box-shadow: 0.4rem 0.4rem 2.4rem var(--card-shadow-clr);
         padding: 3.2rem 3.2rem 8rem;
+        transition: 0.2s;
+        cursor: pointer;
 
         .info {
             display: flex;
@@ -247,6 +276,11 @@ h2 {
         }
     }  
 
+    .card:hover {
+        box-shadow: 0.4rem 0.4rem 2.4rem var(--card-shadow-hover);
+        scale: 1.01;
+    }
+
     .open  {
         position: fixed;
         z-index: 1100;
@@ -254,7 +288,7 @@ h2 {
         left: 0; 
         max-width: none;
         width: 100vw;
-        height: 100vh;
+        height: 100svh;
         padding: 0;
 
         border-radius: 0;
@@ -296,7 +330,7 @@ h2 {
 
                 a {
                     display: block;
-                    border: 1px solid black;
+                    border: 1px solid var(--black);
                     width: 4rem;
                     height: 4rem;
                     border-radius: 2rem;
@@ -317,10 +351,14 @@ h2 {
             }  
         }   
     }
+
+    .card.open:hover {
+        box-shadow: unset;
+        scale: 1;
+    }
 }
 
 section#cv {
-    /*background-color: var(--primary-clr);*/
     background-image: url(images/Gradient_purple.png);
     background-size: cover;
     margin: 0;
@@ -330,19 +368,6 @@ section#cv {
     align-items: center;
     justify-content: center;
     gap: 12rem;
-
-    button {
-        padding: 1.2rem 2.4rem;
-        border: 1px solid var(--black);
-        border-radius: 1.6rem;
-        background: none;
-
-        a {
-            color: var(--black);
-            font-size: 2.4rem;
-            text-wrap: nowrap;
-        }
-    }
 }
 
 footer {
@@ -382,6 +407,7 @@ footer {
     .footer-info {
         display: flex;
         justify-content: space-between;
+        align-items: end;
         gap: 8rem;
     
         p, a {
@@ -396,6 +422,10 @@ footer {
             font-size: 1.6rem;
             margin-bottom: 1.6rem;
             text-wrap: nowrap;
+        }
+
+        a:hover {
+            color: var(--primary-clr);
         }
     }
 }
@@ -418,7 +448,7 @@ footer {
         padding-right: 12rem;
         transform: translateY(0);
 
-        height: 100vh;
+        height: 100svh;
         background-color: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(4rem);
         box-shadow: 0 0.4rem 2.4rem var(--card-shadow-clr);
