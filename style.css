@@ -16,9 +16,29 @@
     --card-shadow-hover: rgba(114, 92, 255, 0.20);
 }
 
+.circle {
+    --circle-size: 4rem;
+    position: fixed;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    top: calc(var(--circle-size) / 2 * -1);
+    left: calc(var(--circle-size) / 2 * -1);
+    pointer-events: none;
+    z-index: 2000;
+    transition: width 0.4s, height 0.4s;
+}
+
+.hover {
+    --circle-size: 1.6rem;
+    border: none;
+    background-color: var(--primary-clr);
+}
+
 html {
     scroll-behavior: smooth;
-    overflow-x: hidde;
+    overflow-x: hidden;
     overflow-y: scroll;
 }
 
@@ -268,6 +288,7 @@ h2 {
     
             p {
                 font-size: 1.6rem;
+                color: var(--primary-clr);
             }
     
             .chips {
@@ -388,7 +409,7 @@ section#cv {
     gap: 12rem;
 }
 
-footer {
+section#contact {
     display: flex;
     flex-direction: column;
     gap: 16rem;
@@ -536,7 +557,7 @@ footer {
         padding: 12rem 4rem;
     }
 
-    footer {
+    section#contact {
         padding: 4rem;
     }
 }

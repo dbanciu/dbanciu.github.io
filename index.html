@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>        
+    <div class="circle"></div>
+
+    <nav class="cursor-interact">        
         <ul>
             <li>
                 <a class="close-menu">
@@ -45,9 +47,7 @@
         </ul>
     </nav>
 
-    <div class="wrapper">
-        <div class="js-scroll">
-            <a class="open-menu hide-desktop">
+            <a class="open-menu hide-desktop cursor-interact">
                 <img src="images/menu-button.svg" alt="Open-Menu">
             </a>
         
@@ -57,7 +57,7 @@
                 <header>
                     <h1>Daniel Banciu</h1>
                     <p>Software developer and <br> data scientist</p>
-                    <button><a href="cv.html">Get my CV</a></button>
+                    <button class="cursor-interact"><a href="cv.html">Get my CV</a></button>
                 </header>
                 <img src="images/header-image.png" alt="Daniel Banciu Portrait">
             </section>
@@ -168,7 +168,7 @@
                     <h2>projects</h2>
                     <div class="cards">
         
-                        <div class="card">
+                        <div class="card cursor-interact">
                             <div class="content">
                                 <div class="card-header">
                                     <div class="info">
@@ -181,7 +181,7 @@
                                             <div>Electric Vehicles</div>
                                         </div>
                                     </div>
-                                    <a><img src="images/close-button.svg" alt=""></a>
+                                    <a class="cursor-interact"><img src="images/close-button.svg" alt=""></a>
                                 </div>
                                 <div class="description">
                                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -189,7 +189,7 @@
                             </div>                    
                         </div>
         
-                        <div class="card">
+                        <div class="card cursor-interact">
                             <div class="content">
                                 <div class="card-header">
                                     <div class="info">
@@ -202,13 +202,13 @@
                                             <div>Scrum</div>
                                         </div>
                                     </div>
-                                    <a><img src="images/close-button.svg" alt=""></a>
+                                    <a class="cursor-interact"><img src="images/close-button.svg" alt=""></a>
                                 </div>
                                 <div class="description"></div>
                             </div>                    
                         </div>
         
-                        <div class="card">
+                        <div class="card cursor-interact">
                             <div class="content">
                                 <div class="card-header">
                                     <div class="info">
@@ -219,13 +219,13 @@
                                             <div>PyTorch</div>
                                         </div>                                                                   
                                     </div>
-                                    <a><img src="images/close-button.svg" alt=""></a>
+                                    <a class="cursor-interact"><img src="images/close-button.svg" alt=""></a>
                                 </div>
                                 <div class="description"></div>
                             </div>                    
                         </div>
         
-                        <div class="card">
+                        <div class="card cursor-interact">
                             <div class="content">
                                 <div class="card-header">
                                     <div class="info">
@@ -236,14 +236,14 @@
                                             <div>NLP</div>
                                         </div>
                                     </div>
-                                    <a><img src="images/close-button.svg" alt=""></a>
+                                    <a class="cursor-interact"><img src="images/close-button.svg" alt=""></a>
                                 </div>
                                 <div class="description"></div>
                             </div>                    
                         </div>
         
                         
-                        <div class="card">
+                        <div class="card cursor-interact">
                             <div class="content">
                                 <div class="card-header">
                                     <div class="info">
@@ -254,13 +254,13 @@
                                             <div>PyTorch</div>
                                         </div>
                                     </div>
-                                    <a><img src="images/close-button.svg" alt=""></a>
+                                    <a class="cursor-interact"><img src="images/close-button.svg" alt=""></a>
                                 </div>
                                 <div class="description"></div>
                             </div>                    
                         </div>
                         
-                        <div class="card">
+                        <div class="card cursor-interact">
                             <div class="content">
                                 <div class="card-header">
                                     <div class="info">
@@ -271,7 +271,7 @@
                                             <div>Attribution methods</div>
                                         </div>
                                     </div>
-                                    <a><img src="images/close-button.svg" alt=""></a>
+                                    <a class="cursor-interact"><img src="images/close-button.svg" alt=""></a>
                                 </div>
                                 <div class="description"></div>
                             </div>                    
@@ -282,24 +282,24 @@
         
             <section id="cv">
                 <h2>Have I sparked your <br> interest?</h2>
-                <button><a href="cv.html">Get my CV</a></button>
+                <button class="cursor-interact"><a href="cv.html">Get my CV</a></button>
             </section>
         
-            <footer id="contact">
+            <section id="contact">
                 <div class="contact">
                     <h2>contact</h2>
                     <div class="social-links">
-                        <div class="link">
+                        <div class="link cursor-interact">
                             <img src="" alt="">
                             <h3>GitHub</h3>
                             <p>Gitbanciu</p>
                         </div>
-                        <div class="link">
+                        <div class="link cursor-interact">
                             <img src="" alt="">
                             <h3>LinkedIn</h3>
                             <p>Daniel Banciu</p>
                         </div>
-                        <div class="link">
+                        <div class="link cursor-interact">
                             <img src="" alt="">
                             <h3>E-Mail</h3>
                             <p>daniel.banciu@email.com</p>
@@ -315,13 +315,11 @@
                     </div>
         
                     <div>
-                        <a href="">Imprint</a>
-                        <a href="">DSGVO</a>
+                        <a href="" class="cursor-interact">Imprint</a>
+                        <a href="" class="cursor-interact">DSGVO</a>
                     </div>
                 </div>
-            </footer>
-        </div>
-    </div>
+            </section>
 
     <script src="script.js"></script>
 </body>
