@@ -140,4 +140,3 @@ cards.forEach(card => {
         circleElement.classList.remove("hover");
     });
 });
-

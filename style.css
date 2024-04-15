@@ -47,22 +47,6 @@ body {
     background-color: var(--white);
 }
 
-.wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.js-scroll {
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    width: 100%;
-    will-change: transform;
-}
-
 button {
     padding: 1.2rem 2.4rem;
     border: 1px solid var(--black);
@@ -150,20 +134,14 @@ section#start {
     position: relative;
     height: 100svh;
     margin-left: 16vw;
-    /* display: flex;
-    flex-direction: row;
-    gap: 0;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0; */
+    display: flex;
+    justify-content: center;
+
 
     header {
         display: flex;
         flex-direction: column;
         gap: 4rem;
-
-        position: relative;
-        top: 40%;
 
         h1 {
             font-size: 8rem;
@@ -206,6 +184,13 @@ h2 {
         padding: 1.2rem 2.4rem;
         border: 1px solid var(--black);
         border-radius: 1.6rem;
+
+        /*Fade-In Animation*/
+        opacity: 0;
+        transform: translateY(4rem);
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: 100px 400px;
     }
 
     li:hover {
@@ -246,6 +231,13 @@ h2 {
             }
 
             .content {
+                /*Fade-In Animation*/
+                opacity: 0;
+                transform: translateY(4rem);
+                animation: fade-in linear forwards;
+                animation-timeline: view();
+                animation-range: 100px 400px;
+
                 display: flex;
                 flex-direction: column;
                 gap: 2.4rem;
@@ -262,6 +254,11 @@ h2 {
     }
 }
 
+@keyframes fade-in {
+    to { opacity: 1; transform: translateY(0);}
+}
+
+
 .cards {
     display: grid;
     gap: 4rem;
@@ -276,6 +273,13 @@ h2 {
         padding: 3.2rem 3.2rem 8rem;
         transition: 0.2s;
         cursor: pointer;
+
+        /*Fade-In Animation*/
+        opacity: 0;
+        transform: translateY(4rem);
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: 100px 400px;
 
         .info {
             display: flex;
@@ -333,6 +337,7 @@ h2 {
         border-radius: 0;
         background-color: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(4rem);
+        cursor: unset;
 
         .content {
             max-width: 1200px;
@@ -407,6 +412,19 @@ section#cv {
     align-items: center;
     justify-content: center;
     gap: 12rem;
+
+    h2 {
+        /*Slide-In Animation*/
+        opacity: 0;
+        transform: translateX(-6.4rem);
+        animation: slide-in linear forwards;
+        animation-timeline: view();
+        animation-range: 0 400px;
+    }
+}
+
+@keyframes slide-in {
+    to { opacity: 1; transform: translateX(0rem); }
 }
 
 section#contact {
@@ -421,6 +439,13 @@ section#contact {
         justify-content: space-between;
         align-content: end;
         gap: 12rem;
+
+        /*Fade-In Animation*/
+        opacity: 0;
+        transform: translateY(4rem);
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: 100px 400px;
     
         .social-links {
             display: flex;
