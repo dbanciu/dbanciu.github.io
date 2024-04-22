@@ -570,10 +570,37 @@ section#contact {
         grid-template-columns: 1fr;
         gap: 2rem;
 
-        .card {
-            padding: 3.2rem;
+        .open  {
+            width: unset;
+            padding: 2.4rem;
+            overflow: scroll;
+    
+            .content {
+                padding: 0;
+    
+                .card-header {
+                    flex-direction: column-reverse;
+                    gap: 4rem;
+                    margin: 0;
+    
+                    .info {
+                        max-width: unset;
+                        gap: 2.4rem;
+    
+                        h3 {
+                            font-size: 2.4rem;
+                        }
+                    }
+    
+                    a {
+                        align-self: flex-end;
+                    }
+                }
+            }   
         }
     }
+
+    
 
     section#cv {
         flex-wrap: wrap;
