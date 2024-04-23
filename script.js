@@ -2,23 +2,7 @@
 
 let sections = document.querySelectorAll("section");
 let navLinks = document.querySelectorAll("nav a");
-
-/*
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
-
-        if(top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove("active");
-                document.querySelector("nav a[href*=" + id + "]").classList.add("active");
-            });
-        }
-    });
-}; */
+let navLines = document.querySelectorAll("nav .nav-line");
 
 const offsetFromBottom = 400;
 
@@ -31,8 +15,15 @@ window.onscroll = () => {
         let id = sec.getAttribute('id');
 
         if (bottom >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove("active");
+            navLines.forEach(line => {
+                line.classList.remove("active");                
+                document.querySelector("nav a[href*=" + id + "]").previousElementSibling.classList.add("active");
+            });
+        }
+
+        if (bottom >= offset && top < offset + height) {
+            navLinks.forEach(link => {
+                link.classList.remove("active");
                 document.querySelector("nav a[href*=" + id + "]").classList.add("active");
             });
         }
@@ -56,7 +47,7 @@ closeMenuBtn.addEventListener("click", () => {
 
 
 
-// Cards
+// Cards Open
 
 let cards = document.querySelectorAll(".card");
 
@@ -74,28 +65,6 @@ cards.forEach(card => {
 });
 
 
-
-// Smooth Scrolling
-/*
-const body = document.body,
-      jsScroll = document.getElementsByClassName('js-scroll')[0],
-      height = jsScroll.getBoundingClientRect().height - 1,
-      speed = 0.15;
-
-var offset = 0;
-
-body.style.height = Math.floor(height) + "px";
-
-function smoothScroll() {
-    offset += (window.pageYOffset - offset) * speed;
-    
-    var scroll = "translateY(-" + offset + "px) translateZ(0)";
-    jsScroll.style.transform = scroll;
-    
-    raf = requestAnimationFrame(smoothScroll);
-}
-smoothScroll();
-*/
 
 // Cursor Following Circle
 
@@ -122,6 +91,8 @@ const tick = () => {
 
 tick();
 
+
+// Cursor Interact Animation
 
 let cursorInteractables = document.querySelectorAll(".cursor-interact");
 

@@ -100,16 +100,33 @@ nav {
             .nav-line {
                 width: 0.8rem;
                 height: 1px;
+                background-color: rgb(180, 180, 180);
+                transition: 0.2s;
+            }
+
+            .nav-line.active {
+                width: 1.6rem;
                 background-color: var(--black);
             }
             
             a {
                 font-size: 1.6rem;
-                color: var(--black);
+                color: rgb(180, 180, 180);
             }
 
             a.active {
-                font-weight: 700;
+                color: var(--black);
+            }
+        }
+
+        li:hover {
+            .nav-line {
+                width: 1.6rem;
+                background-color: var(--primary-clr);
+            }
+
+            a {
+                color: var(--primary-clr);
             }
         }
     }
