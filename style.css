@@ -49,7 +49,7 @@ body {
 
 button {
     padding: 1.2rem 2.4rem;
-    border: 1px solid var(--black);
+    border: 2px solid var(--black);
     border-radius: 1.6rem;
     background: none;
     cursor: pointer;
@@ -57,7 +57,7 @@ button {
     transition: border-radius 0.2s ease-in-out;
 
     a {
-        color: black;
+        color: var(--black);
         font-size: 2.4rem;
         font-weight: 400;
         text-wrap: nowrap;
@@ -111,11 +111,12 @@ nav {
             
             a {
                 font-size: 1.6rem;
-                color: rgb(180, 180, 180);
+                color: var(--grey);
             }
 
             a.active {
                 color: var(--black);
+                font-weight: 500;
             }
         }
 
@@ -127,6 +128,7 @@ nav {
 
             a {
                 color: var(--primary-clr);
+                font-weight: 500;
             }
         }
     }
@@ -148,37 +150,40 @@ section {
 }
 
 section#start {
-    position: relative;
     height: 100svh;
     margin-left: 16vw;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    padding-inline: 12rem;
 
 
     header {
         display: flex;
         flex-direction: column;
         gap: 4rem;
+        padding-top: 8rem;
+        
 
         h1 {
             font-size: 8rem;
-            color: grey;
-            mix-blend-mode: difference;
+            color: var(--black);
         }
 
         p {
             font-size: 4rem;
-            color: grey;
-            mix-blend-mode: difference;
+            color: var(--primary-clr);
         }
     }
 
     img {
         z-index: -100;
-
-        position: absolute;
-        right: 0;
-        min-width: 60%;
+        width: 50%;
+        min-width: 600px;
+        max-width: 1000px;
     }
 }
 
@@ -258,6 +263,12 @@ h2 {
                 display: flex;
                 flex-direction: column;
                 gap: 2.4rem;
+
+                .title {
+                    display: flex;
+                    gap: 1.6rem;
+                    align-items: center;
+                }
 
                 h3, p {
                     font-size: 2rem;
@@ -402,7 +413,12 @@ h2 {
                     img {
                         width: 2.4rem;
                         height: 2.4rem;
+                        transition: 0.4s;
                     }
+                }
+
+                a:hover img{
+                    transform: rotate(90deg)
                 }
             }
 
@@ -449,6 +465,8 @@ section#contact {
     flex-direction: column;
     gap: 16rem;
     padding: 8rem 32rem;
+    max-width: 1400px;
+    margin: 0 auto;
 
     .contact {
         display: flex;
@@ -456,7 +474,6 @@ section#contact {
         justify-content: space-between;
         align-content: end;
         gap: 12rem;
-
         /*Fade-In Animation*/
         opacity: 0;
         transform: translateY(4rem);
@@ -473,13 +490,27 @@ section#contact {
                 display: flex;
                 flex-direction: column;
                 gap: 1.6rem;
+
+                img {
+                    width: 4rem;
+                    height: 4rem;
+                }
     
                 h3 {
                     font-size: 2.4rem;
                     font-weight: 500;
                 }
+
                 p {
-                    font-size: 1rem;
+                    font-size: 1.6rem;
+                }
+            }
+
+            .link:hover {
+                cursor: pointer;
+
+                h3 {
+                    color: var(--primary-clr);
                 }
             }
         }
@@ -550,14 +581,10 @@ section#contact {
     
     section#start {
         margin: 0 0 24rem;
+        padding-inline: 4rem;
 
         header {
             top: 20%;
-        }
-
-        img {
-            bottom: 0;
-            width: 100%;
         }
     }
 
