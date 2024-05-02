@@ -490,6 +490,7 @@ section#contact {
                 display: flex;
                 flex-direction: column;
                 gap: 1.6rem;
+                color: var(--black);
 
                 img {
                     width: 4rem;

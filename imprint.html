@@ -29,6 +29,26 @@
                 justify-content: center;
             }
 
+            .circle {
+            --circle-size: 4rem;
+            position: fixed;
+            width: var(--circle-size);
+            height: var(--circle-size);
+            border: 1px solid var(--black);
+            border-radius: 50%;
+            top: calc(var(--circle-size) / 2 * -1);
+            left: calc(var(--circle-size) / 2 * -1);
+            pointer-events: none;
+            z-index: 2000;
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .hover {
+            --circle-size: 1.6rem;
+            border: none;
+            background-color: var(--primary-clr);
+        }
+
             .container{
                 padding: 8rem 4rem;
                 font-family: Inter, Arial;
@@ -64,6 +84,8 @@
     </style>
 </head>
 <body>
+    <div class="circle"></div>
+    
     <div class="container">
         <h1>Imprint</h1>
         <p>Daniel Banciu <br>
@@ -118,8 +140,46 @@
             uns bevor Sie die Inhalte dieser Website verbreiten, vervielfältigen oder verwerten wie zum Beispiel auf anderen Websites erneut
             veröffentlichen. Falls notwendig, werden wir die unerlaubte Nutzung von Teilen der Inhalte unserer Seite rechtlich verfolgen.
         </p>
-        
-
   </div>
+
+  <script>
+    // Cursor Following Circle
+
+    const circleElement = document.querySelector(".circle");
+
+    const mouse = {x: 0, y: 0};
+    const circle = {x: 0, y: 0};
+
+    window.addEventListener("mousemove", (e) => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    });
+
+    const circleSpeed = 0.16;
+
+    const tick = () => {
+        circle.x += (mouse.x - circle.x) * circleSpeed;
+        circle.y += (mouse.y - circle.y) * circleSpeed;
+
+        circleElement.style.transform = `translate(${circle.x}px, ${circle.y}px`;
+
+        window.requestAnimationFrame(tick);
+    }
+
+    tick();
+
+
+    let cursorInteractables = document.querySelectorAll(".cursor-interact");
+
+    cursorInteractables.forEach(Interactable => {
+        Interactable.addEventListener("mouseenter", () => {
+            circleElement.classList.add("hover");
+        });
+        
+        Interactable.addEventListener("mouseleave", () => {
+            circleElement.classList.remove("hover");
+        });
+    });
+</script>
 </body>
 </html>
