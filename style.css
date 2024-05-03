@@ -356,7 +356,8 @@ h2 {
         position: fixed;
         z-index: 1100;
         top: 0;
-        left: 0; 
+        left: 0;
+        transform: translate(-50%, -50%);
         max-width: none;
         width: 100vw;
         height: 100svh;
@@ -544,6 +545,13 @@ section#contact {
 }
 
 @media (max-width: 768px) {
+    .circle {
+        display: none;
+    }
+
+    body {
+        overflow: hidden;
+    }
     
     .open-menu {
         display: block;

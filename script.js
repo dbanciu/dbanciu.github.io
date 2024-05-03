@@ -33,16 +33,25 @@ window.onscroll = () => {
 
 // Burger Menu
 
-const openMenuBtn = document.querySelector(".open-menu");
+const openMenuBtn = document.querySelector(".open-menu > img");
 const closeMenuBtn = document.querySelector(".close-menu");
 const menu = document.querySelector("nav");
 
-openMenuBtn.addEventListener("click", () => {
-    menu.classList.add("open");
-});
+// openMenuBtn.addEventListener("click", () => {
+//     menu.classList.add("open");
+// });
 
 closeMenuBtn.addEventListener("click", () => {
     menu.classList.remove("open");
+});
+
+document.addEventListener("click", function(event) {
+    console.log(event);
+    if(menu.classList.contains('open') && !event.target.isEqualNode(openMenuBtn) && !event.target.isEqualNode(menu) && !menu.contains(event.target)) {
+        menu.classList.remove('open');
+    } else if(event.target.isEqualNode(openMenuBtn)) {
+        menu.classList.add("open");
+    }
 });
 
 
@@ -63,6 +72,7 @@ cards.forEach(card => {
         card.classList.remove("open");
     });
 });
+
 
 
 
