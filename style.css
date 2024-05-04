@@ -647,14 +647,16 @@ section#contact {
         gap: 2rem;
 
         .open  {
-            left: 20%;
-            max-width: 50%;
-            width: unset;
-            padding: 2.4rem;
-            overflow: scroll;
+            z-index: 1100;
+            position: fixed;
+            top: 10%;
+            left: 5%;
+            max-width: 70%;
+            max-height: 75%;
+            overflow: auto;
+            padding-bottom: 10%;
     
             .content {
-                padding: 0;
     
                 .card-header {
                     flex-direction: column-reverse;
