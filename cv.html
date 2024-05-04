@@ -2,154 +2,190 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Banciu CV</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
 
-    <style>
-        * {
-            font-size: 62.5%;
+<title>Daniel Banciu CV</title>
+
+<style>
+    * {
+        font-size: 62.5%;
+    }
+    
+    :root {
+        --primary-clr: #725cff;
+        --white: #e5e4eb;
+        --grey: #646277;
+        --black: #373543;
+        --card-clr: #ececec;
+        --card-shadow-clr: rgba(114, 92, 255, 0.08);
+        --card-shadow-hover: rgba(114, 92, 255, 0.20);
+    }
+    
+    .circle {
+        --circle-size: 4rem;
+        position: fixed;
+        width: var(--circle-size);
+        height: var(--circle-size);
+        border: 1px solid var(--black);
+        border-radius: 50%;
+        top: calc(var(--circle-size) / 2 * -1);
+        left: calc(var(--circle-size) / 2 * -1);
+        pointer-events: none;
+        z-index: 2000;
+        transition: width 0.4s, height 0.4s;
+    }
+    
+    .hover {
+        --circle-size: 1.6rem;
+        border: none;
+        background-color: var(--primary-clr);
+    }
+    
+    body {
+        margin: 0;
+        padding: 4rem 0;
+        height: 100svh;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+    
+    button {
+        padding: 1.2rem 2.4rem;
+        border: 2px solid var(--black);
+        border-radius: 1.6rem;
+        background: none;
+        cursor: pointer;
+        width: fit-content;
+        transition: border-radius 0.2s ease-in-out;
+        color: var(--black);
+        font-size: 2.4rem;
+        font-weight: 400;
+        text-wrap: nowrap;
+    }
+    button:hover {
+        border-radius: 3.2rem;
+    }
+    
+    .wrapper {
+        width: 80%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        height: 100%
+    }
+    
+    iframe {
+        border: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.8rem;
+    }
+    
+    a {
+        align-self: flex-start;
+        font-family: Inter, Arial;
+        font-size: 2.4rem;
+        color: black;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        width: fit-content;
+        
+        img {
+            transition: 0.4s ease;
         }
-
-        :root {
-            --primary-clr: #725cff;
-            --white: #e5e4eb;
-            --grey: #646277;
-            --black: #373543;
-            --card-clr: #ececec;
-            --card-shadow-clr: rgba(114, 92, 255, 0.08);
-            --card-shadow-hover: rgba(114, 92, 255, 0.20);
+    }
+    
+    a:hover {
+        img {
+            transform: translateX(-0.4rem);
         }
-
+    }
+    
+    @media (max-width: 768px) {
         .circle {
-            --circle-size: 4rem;
-            position: fixed;
-            width: var(--circle-size);
-            height: var(--circle-size);
-            border: 1px solid var(--black);
-            border-radius: 50%;
-            top: calc(var(--circle-size) / 2 * -1);
-            left: calc(var(--circle-size) / 2 * -1);
-            pointer-events: none;
-            z-index: 2000;
-            transition: width 0.4s, height 0.4s;
+            display: none;
         }
-
-        .hover {
-            --circle-size: 1.6rem;
-            border: none;
-            background-color: var(--primary-clr);
-        }
-
+        
         body {
-            margin: 0;
-            padding: 4rem 0;
-            height: 100svh;
-            display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
+            padding: 0;
         }
-
+        
         .wrapper {
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4rem;
-            height: 100%
-        }
-
-        iframe {
-            border: none;
             width: 100%;
-            height: 100%;
-            border-radius: 0.8rem;
         }
-
+        
+        iframe {
+            border-radius: 0;
+        }
+        
         a {
-            align-self: flex-start;
-            font-family: Inter, Arial;
-            font-size: 2.4rem;
-            color: black;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            width: fit-content;
-
-            img {
-                transition: 0.4s ease;
-            }
+            display: none;
         }
-
-        a:hover {
-            img {
-                transform: translateX(-0.4rem);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .circle {
-                display: none;
-            }
-
-            body {
-                padding: 0;
-            }
-
-            .wrapper {
-                width: 100%;
-            }
-
-            iframe {
-                border-radius: 0;
-            }
-
-            a {
-                display: none;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
     <div class="circle"></div>
-
-    <div class="wrapper">
+    
+    <!-- <div class="wrapper">
         <a href="index.html" class="cursor-interact"><img src="images/back-button.svg" alt="Back">Back</a>
         <iframe src="Daniel_Banciu_CV_2023.pdf"></iframe>
+    </div> -->
+    
+    <div class="wrapper">
+        <a href="index.html" class="cursor-interact"><img src="images/back-button.svg" alt="Back">Back</a>
+        <iframe id="pdf-display" src="Daniel_Banciu_CV_2023.pdf"></iframe>
     </div>
-
+    
     <script>
+        // Browser detection and conditional display
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+            // Firefox user: Replace iframe with download link
+            document.getElementById('pdf-display').outerHTML = '<button class="cursor-interact"> <a href="Daniel_Banciu_CV_2023.pdf">Download My CV</a></button>';
+        }
+        // Non-Firefox users see the iframe as defined in the HTML
+        
         // Cursor Following Circle
-
+        
         const circleElement = document.querySelector(".circle");
-
+        
         const mouse = {x: 0, y: 0};
         const circle = {x: 0, y: 0};
-
+        
         window.addEventListener("mousemove", (e) => {
             mouse.x = e.x;
             mouse.y = e.y;
         });
-
+        
         const circleSpeed = 0.16;
-
+        
         const tick = () => {
             circle.x += (mouse.x - circle.x) * circleSpeed;
             circle.y += (mouse.y - circle.y) * circleSpeed;
-
+            
             circleElement.style.transform = `translate(${circle.x}px, ${circle.y}px`;
-
+            
             window.requestAnimationFrame(tick);
         }
-
+        
         tick();
-
-
+        
+        
         let cursorInteractables = document.querySelectorAll(".cursor-interact");
-
+        
         cursorInteractables.forEach(Interactable => {
             Interactable.addEventListener("mouseenter", () => {
                 circleElement.classList.add("hover");
@@ -158,6 +194,24 @@
             Interactable.addEventListener("mouseleave", () => {
                 circleElement.classList.remove("hover");
             });
+        });
+        
+        // Escape key event listener
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                // Redirect to index.html
+                history.back();
+            }
+        });
+        
+        // Click outside listener
+        document.addEventListener('click', function(event) {
+            let target = event.target; // Get the clicked element
+            let isInside = target.closest('.cursor-interact, #pdf-display'); // Check if the click was inside the button or iframe
+            
+            if (!isInside) {
+                history.back(); // Mimic pressing the escape button, go back
+            }
         });
     </script>
 </body>

@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /imprint.html
 Disallow: /privacy-policy.html
+Disallow: /cv.html
