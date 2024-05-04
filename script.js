@@ -46,7 +46,6 @@ closeMenuBtn.addEventListener("click", () => {
 });
 
 document.addEventListener("click", function(event) {
-    console.log(event);
     if(menu.classList.contains('open') && !event.target.isEqualNode(openMenuBtn) && !event.target.isEqualNode(menu) && !menu.contains(event.target)) {
         menu.classList.remove('open');
     } else if(event.target.isEqualNode(openMenuBtn)) {
@@ -58,7 +57,7 @@ document.addEventListener("click", function(event) {
 
 // Cards Open
 
-let cards = document.querySelectorAll(".card");
+/* let cards = document.querySelectorAll(".card");
 
 cards.forEach(card => {
     card.addEventListener("click", () => {
@@ -71,8 +70,115 @@ cards.forEach(card => {
         event.stopPropagation();
         card.classList.remove("open");
     });
+}); */
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll(".card");
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    document.body.appendChild(overlay);
+    const menu = document.querySelector("nav"); // Ensure you have this selector correct
+    const openMenuBtn = document.querySelector(".open-menu > img");
+    const closeMenuBtn = document.querySelector(".close-menu");
+
+    // Function to close all open cards
+    function closeAllCards() {
+        cards.forEach(card => {
+            card.classList.remove("open");
+        });
+        overlay.style.display = 'none';
+    }
+
+    // Function to close the menu
+    function closeMenu() {
+        if (menu.classList.contains('open')) {
+            menu.classList.remove('open');
+        }
+    }
+
+    cards.forEach(card => {
+        // Listen for clicks on the card
+        card.addEventListener("click", function(event) {
+            if (menu.classList.contains('open')) {
+                // If the menu is open, just close it and stop further actions
+                closeMenu();
+                event.stopPropagation();
+                return; // Prevent the card from opening
+            }
+
+            if (!this.classList.contains("open")) {
+                // Only open this card if no card is open and the menu is not open
+                this.classList.add("open");
+                overlay.style.display = 'block';
+            }
+            event.stopPropagation();
+        });
+
+        // Close button inside the card
+        const cardCloseBtn = card.querySelector(".cursor-interact img");
+        if (cardCloseBtn) {
+            cardCloseBtn.addEventListener("click", (event) => {
+                event.stopPropagation(); // Prevent event from bubbling to card
+                closeAllCards();
+            });
+        }
+    });
+
+    // Handling clicks outside the cards to close any open card or the menu
+    document.addEventListener("click", function(event) {
+        if (!event.target.closest(".card") && !event.target.closest("nav") && overlay.style.display === 'block') {
+            closeAllCards();
+        }
+
+        if (!event.target.closest(".open-menu") && !event.target.isEqualNode(openMenuBtn) && !event.target.closest("nav")) {
+            closeMenu();
+        }
+    });
+
+    // Overlay click to close any open card
+    overlay.addEventListener("click", function() {
+        closeAllCards();
+    });
+
+    // Close open card and menu with ESC key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            closeAllCards();
+            closeMenu();
+        }
+    });
+
+    // back to top button
+    const backToTopBtn = document.getElementById("backToTopBtn");
+
+    function toggleBackToTopBtn() {
+        let scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+        let scrollPosition = window.scrollY;
+        
+        // Modify this value to change when the button appears
+        let threshold = scrollTotal * 0.9997; // 80% scroll to appear
+
+        if (scrollPosition >= threshold) {
+            backToTopBtn.style.opacity = 1; // Make button visible
+            backToTopBtn.style.pointerEvents = 'auto'; // Enable mouse events
+        } else {
+            backToTopBtn.style.opacity = 0; // Make button invisible
+            backToTopBtn.style.pointerEvents = 'none'; // Disable mouse events
+        }
+    }
+
+    window.addEventListener("scroll", toggleBackToTopBtn);
+    
+    // Scroll to top smoothly when the button is clicked
+    backToTopBtn.onclick = function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
 });
 
+// Check if any card is currently open
+function isAnyCardOpen() {
+    return Array.from(document.querySelectorAll(".card")).some(card => card.classList.contains("open"));
+}
 
 
 

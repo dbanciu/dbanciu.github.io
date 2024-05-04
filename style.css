@@ -64,6 +64,29 @@ button {
     }
 }
 
+#backToTopBtn {
+    display: block;
+    padding: 1.2rem 2.4rem;
+    border: 2px solid var(--black);
+    border-radius: 1.6rem;
+    background: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: border-radius 0.2s ease-in-out;
+    color: var(--black);
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-wrap: nowrap;
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 0.75s ease; /* Smooth transition for the opacity */
+    pointer-events: none; /* Start with no mouse events to avoid clicking when invisible */
+}
+
+#backToTopBtn:hover {
+    border-radius: 3.2rem;
+}
+
+
 button:hover {
     border-radius: 3.2rem;
 }
@@ -355,12 +378,12 @@ h2 {
     .open  {
         position: fixed;
         z-index: 1100;
-        top: 0;
-        left: 0;
+        top: 25%;
+        left: 25%;
         transform: translate(-50%, -50%);
         max-width: none;
-        width: 100vw;
-        height: 100svh;
+        width: auto;
+        max-height: 90%;
         padding: 0;
 
         border-radius: 0;
@@ -371,7 +394,7 @@ h2 {
         .content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 24rem 4rem;
+            padding: 4rem 4rem;
 
             .card-header {
                 display: flex;
@@ -624,6 +647,8 @@ section#contact {
         gap: 2rem;
 
         .open  {
+            left: 20%;
+            max-width: 50%;
             width: unset;
             padding: 2.4rem;
             overflow: scroll;
