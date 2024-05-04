@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const overlay = document.createElement('div');
     overlay.className = 'overlay';
     document.body.appendChild(overlay);
-    const menu = document.querySelector("nav"); // Ensure you have this selector correct
+    const menu = document.querySelector("nav");
     const openMenuBtn = document.querySelector(".open-menu > img");
     const closeMenuBtn = document.querySelector(".close-menu");
 
@@ -96,18 +96,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Listen for clicks on each card
     cards.forEach(card => {
-        // Listen for clicks on the card
         card.addEventListener("click", function(event) {
             if (menu.classList.contains('open')) {
-                // If the menu is open, just close it and stop further actions
+                // Close menu if it's open and stop further actions
                 closeMenu();
                 event.stopPropagation();
-                return; // Prevent the card from opening
+                return;
             }
 
+            // Ensure only one card can be interacted with at a time
+            if (isAnyCardOpen() && !this.classList.contains("open")) {
+                closeAllCards();
+                // No new card should open
+                event.stopPropagation();
+                return;
+            }
+
+            // Open this card if no other cards are open
             if (!this.classList.contains("open")) {
-                // Only open this card if no card is open and the menu is not open
                 this.classList.add("open");
                 overlay.style.display = 'block';
             }
@@ -121,6 +129,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 event.stopPropagation(); // Prevent event from bubbling to card
                 closeAllCards();
             });
+        }
+    });
+
+    // Click on the burger menu button
+    openMenuBtn.addEventListener("click", function(event) {
+        if (isAnyCardOpen()) {
+            closeAllCards();
+            event.stopPropagation(); // Prevent opening the menu
+        } else {
+            toggleMenu(); // Otherwise, toggle the menu normally
         }
     });
 
