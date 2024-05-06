@@ -47,7 +47,7 @@ body {
     background-color: var(--white);
 }
 
-button {
+.button {
     padding: 1.2rem 2.4rem;
     border: 2px solid var(--black);
     border-radius: 1.6rem;
@@ -55,13 +55,15 @@ button {
     cursor: pointer;
     width: fit-content;
     transition: border-radius 0.2s ease-in-out;
+    color: var(--black);
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-wrap: nowrap;
+    
+}
 
-    a {
-        color: var(--black);
-        font-size: 2.4rem;
-        font-weight: 400;
-        text-wrap: nowrap;
-    }
+.button:hover {
+    border-radius: 3.2rem;
 }
 
 #backToTopBtn {
@@ -83,11 +85,6 @@ button {
 }
 
 #backToTopBtn:hover {
-    border-radius: 3.2rem;
-}
-
-
-button:hover {
     border-radius: 3.2rem;
 }
 
