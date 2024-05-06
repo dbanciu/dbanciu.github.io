@@ -81,6 +81,7 @@ body {
     text-wrap: nowrap;
     opacity: 0; /* Start fully transparent */
     transition: opacity 0.75s ease; /* Smooth transition for the opacity */
+    transition: 0.4s; /*Transition für border-radius bei Hover*/
     pointer-events: none; /* Start with no mouse events to avoid clicking when invisible */
 }
 
