@@ -324,11 +324,11 @@ h2 {
         cursor: pointer;
 
         /*Fade-In Animation*/
-        opacity: 0;
+        /* opacity: 0;
         transform: translateY(4rem);
         animation: fade-in linear forwards;
         animation-timeline: view();
-        animation-range: 100px 400px;
+        animation-range: 100px 400px; */
 
         .info {
             display: flex;
@@ -376,23 +376,20 @@ h2 {
     .open  {
         position: fixed;
         z-index: 1100;
-        top: 25%;
-        left: 25%;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
         max-width: none;
-        width: auto;
-        max-height: 90%;
-        padding: 0;
+        min-width: 64rem;
+        padding: 4rem;
 
-        border-radius: 0;
+        border-radius: 2.4rem;
         background-color: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(4rem);
+        box-shadow: 0 0 8rem var(--card-shadow-clr);
         cursor: unset;
 
         .content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 4rem;
 
             .card-header {
                 display: flex;
@@ -404,7 +401,7 @@ h2 {
                     gap: 3.2rem;
 
                     h3 {
-                        font-size: 4rem;
+                        font-size: 3.2rem;
                     }
             
                     p {
@@ -452,7 +449,7 @@ h2 {
     }
 
     .card.open:hover {
-        box-shadow: unset;
+        box-shadow: 0 0 8rem var(--card-shadow-clr);
         scale: 1;
     }
 }
@@ -647,12 +644,13 @@ section#contact {
         .open  {
             z-index: 1100;
             position: fixed;
-            top: 10%;
-            left: 5%;
-            max-width: 70%;
-            max-height: 75%;
+            top: 50%;
+            left: 50%;
+            min-width: unset;
+            width: 72%;
+            height: 64%;
+            transform: translate(-50%, -50%);
             overflow: auto;
-            padding-bottom: 10%;
     
             .content {
     
