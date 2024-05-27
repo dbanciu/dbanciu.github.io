@@ -341,6 +341,7 @@ h2 {
     
             p {
                 font-size: 1.6rem;
+                font-weight: 500;
                 color: var(--primary-clr);
             }
     
@@ -451,6 +452,43 @@ h2 {
     .card.open:hover {
         box-shadow: 0 0 8rem var(--card-shadow-clr);
         scale: 1;
+    }
+}
+
+.languages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .language {
+        display: flex;
+        gap: 1.6rem;
+        flex-direction: column;
+        margin-bottom: 6.44rem;
+
+        .top {
+            display: flex;
+            gap: 1.6rem;
+
+            img {
+                width: 3.2rem;
+            }
+
+            h3 {
+                font-size: 2rem;
+            }
+        }
+
+        p {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--primary-clr);
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+    .languages {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -611,7 +649,21 @@ section#contact {
         padding-inline: 4rem;
 
         header {
-            top: 20%;
+            /* top: 20%; */
+            gap: 2.4rem;
+
+            h1 {
+                font-size: 6.4rem;
+            }
+
+            p {
+                font-size: 3.2rem;
+            }
+        }
+
+        img {
+            position: relative;
+            left: -30%;
         }
     }
 
