@@ -524,6 +524,7 @@ section#contact {
     padding: 8rem 32rem;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
 
     .contact {
         display: flex;
@@ -578,6 +579,7 @@ section#contact {
         display: flex;
         justify-content: space-between;
         align-items: end;
+        flex-wrap: wrap;
         gap: 8rem;
     
         p, a {
@@ -597,6 +599,12 @@ section#contact {
         a:hover {
             color: var(--primary-clr);
         }
+    }
+
+    .back-to-top {
+        position: absolute;
+        right: 6.4rem;
+        bottom: 8rem;
     }
 }
 
@@ -739,5 +747,11 @@ section#contact {
 
     section#contact {
         padding: 4rem;
+
+        .back-to-top {
+            position: relative;
+            right: unset;
+            bottom: unset;
+        }
     }
 }
